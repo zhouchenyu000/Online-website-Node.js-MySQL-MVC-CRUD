@@ -19,5 +19,4 @@ unit-test 單元測試
 資料庫：MySQL   
 框架：Node.js / Express.js   
 版本控管：git & git-flow, github  
-單元測試
 
