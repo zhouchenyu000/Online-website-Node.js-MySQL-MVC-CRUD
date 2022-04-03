@@ -1,6 +1,6 @@
 # 後台網站 Node.js-MVC-CRUD-unit-test
 
-![image](https://github.com/zhouchenyu000/Node.js-MVC-CRUD-unit-test/public/images/demo.png)
+![image](https://github.com/zhouchenyu000/Node.js-MVC-CRUD-unit-test/blob/main/public/images/demo.png?raw=true)
 
 線上版本：https://agile-cliffs-84065.herokuapp.com   
 
