@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>廠商新增</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="./css/font.css">
+        <link rel="stylesheet" href="./css/xadmin.css">
+        <script type="text/javascript" src="./lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="./js/xadmin.js"></script>
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]--></head>
+    
+    <body>
+        <div class="layui-fluid">
+            <form action="ManagerAdd" method="post" accept-charset="utf-8">
+                <div class="layui-row">
+                    <div class="layui-form-item">
+                        <label for="username" class="layui-form-label">
+                            <span class="x-red">*</span>廠商名稱</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="name" required="" lay-verify="required" autocomplete="off" class="layui-input"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="username" class="layui-form-label">
+                            <span class="x-red">*</span>廠商帳號</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="account" required="" lay-verify="required" autocomplete="off" class="layui-input"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="phone" class="layui-form-label">
+                            <span class="x-red">*</span>廠商密碼</label>
+                        <div class="layui-input-inline">
+                            <input type="password" name="password" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="phone" class="layui-form-label">
+                            <span class="x-red">*</span>管理權限</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="permission" list="typelist"required="" lay-verify="phone" autocomplete="off" class="layui-input">
+                            <datalist id="typelist">
+                            　　<option>最高權限</option>
+                            　　<option>次級權限</option>
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label"></label>
+                    <button class="layui-btn" name="ProductAdd" lay-filter="add" lay-submit="">增加</button>
+                    <input type='reset' class="layui-btn" value='清空'>
+                    <button type="button" onclick="javascript: location.href='/member_list'" class="layui-btn">返回</button>
+                </div>
+            </form>
+        </div>
+        </div>
+
+    </body>
+
+</html>
