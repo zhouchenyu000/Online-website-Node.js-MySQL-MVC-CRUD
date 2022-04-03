@@ -1,5 +1,7 @@
 # 後台網站 Node.js-MVC-CRUD-unit-test
 
+![image](https://github.com/zhouchenyu000/Node.js-MVC-CRUD-unit-test/public/images/demo.png)
+
 線上版本：https://agile-cliffs-84065.herokuapp.com   
 
 帳號：admin@example.com 
