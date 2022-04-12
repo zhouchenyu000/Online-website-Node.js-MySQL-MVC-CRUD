@@ -1,22 +1,24 @@
 # Node.js-MVC-CRUD
 
-![image](https://github.com/zhouchenyu000/Node.js-MVC-CRUD-unit-test/blob/main/public/images/demo.png?raw=true)
-
 線上版本：https://agile-cliffs-84065.herokuapp.com   
 
 帳號：admin@example.com 
 
-密碼：12345678 
-
-功能   
-可以查看、新增、修改、刪除會員   
-可以查看、新增、修改、刪除商品   
-可以查看、新增、修改、刪除廠商  
-unit-test 單元測試
-
+密碼：12345678   
 
 使用技術   
 資料庫：MySQL   
 框架：Node.js / Express.js   
-版本控管：git & git-flow, github  
+版本控管：git, github 
+
+功能   
+1.登入驗證    
+![image](demo/login/1.png)
+2.新增資料
+
+3.修改資料
+
+4.刪除資料
+
+
 
