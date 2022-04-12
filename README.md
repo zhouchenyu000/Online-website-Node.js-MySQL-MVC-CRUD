@@ -9,7 +9,7 @@
 使用技術   
 資料庫：MySQL   
 框架：Node.js / Express.js   
-版本控管：git, github
+版本控管：git, github    
 雲端：heroku
 
 功能   
