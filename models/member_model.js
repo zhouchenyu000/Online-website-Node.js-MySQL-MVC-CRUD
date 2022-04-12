@@ -81,4 +81,24 @@ module.exports = class Member {
             })
         })
     }
+    EditMemberData = async function (MemberData,id) {
+            let result = {};
+            return new Promise((resolve, reject) => {
+                console.log(MemberData) 
+                db.query('UPDATE member Set ? where id = ?', [MemberData,id], function (err, rows) {
+                    // 若資料庫部分出現問題，則回傳給client端「伺服器錯誤，請稍後再試！」的結果。
+                    if (err) {
+                        console.log(err);
+                        result.status = "更新失敗。"
+                        result.err = "伺服器錯誤，請稍後在試！"
+                        reject(result);
+                        return;
+                    }
+                    else {
+                        result.status = "更新成功。"
+                        resolve(result);
+                    }
+                })
+            })
+    }
 }

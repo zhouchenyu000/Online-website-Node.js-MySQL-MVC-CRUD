@@ -53,6 +53,7 @@ module.exports = class Manager {
                         }
                         // 若寫入資料庫成功，則回傳給clinet端下：
                         result.status = "註冊成功。"
+                        console.log(ManagerData)
                         result.data = ManagerData;
                         resolve(result);
                     })
@@ -103,14 +104,15 @@ module.exports = class Manager {
         })
     }
     CheckManagerPermission(ManagerData) {
+        console.log('use ckeck')
         db.query('SELECT permission FROM manager WHERE id =?', [ManagerData.id], function (err, rows) {
             console.log(rows[0].permission)
             if (rows[0].permission == '最高權限') {
-                console.log('a')
+                console.log('t')
                 return true;
             }
         })
-        console.log('b')
+        console.log('f')
         return false;
     }
 }

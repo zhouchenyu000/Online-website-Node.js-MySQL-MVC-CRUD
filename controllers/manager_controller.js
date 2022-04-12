@@ -28,41 +28,56 @@ module.exports = class GetManager {
   }
     
   DelManager = (req, res, next) => {
-    console.log(req.body)
     var ManagerData = {
-      id: req.body.id,
+        id: req.body.id,
     }
     console.log(ManagerData)
-    ManagerModules.DelManagerData(ManagerData).then(result => {
-      console.log(result)
-      res.setHeader('Content-Type', 'application/json');
-      res.redirect('/Manager_list');
-    }, (err) => {
-      res.json({
-        result: err
+    if (req.body.id == '1') {
+      return res.json({
+        result: '不得刪除最高權限'
       })
-    })
+    }
+    else {
+      console.log(ManagerData)
+      ManagerModules.DelManagerData(ManagerData).then(result => {
+        console.log(result)
+        res.setHeader('Content-Type', 'application/json');
+        res.redirect('/Manager_list');
+      }, (err) => {
+        res.json({
+          result: err
+        })
+      })
+    }
   }
   EditManager = (req, res, next) => {
-    var password = encryption(req.body.password);
-    var ManagerData = {
-      id: req.body.id,
-      name: req.body.name,
-      password: password,
-      account: req.body.account,
-      permission: req.body.permission,
-    }
-    ManagerModules.EditManagerData(ManagerData).then(result => {
-      /*res.json({
-          result: result
-      })*/
-      res.setHeader('Content-Type', 'application/json');
-      res.redirect('/manager_list');
-    }, (err) => {
+    console.log(req.body.permission)
+    if (req.body.id == '1') {
       res.json({
-        result: err
+        result: '不得編輯最高權限'
       })
-    })
+    }
+    else {
+      var password = encryption(req.body.password);
+      var ManagerData = {
+        id: req.body.id,
+        name: req.body.name,
+        password: password,
+        account: req.body.account,
+        permission: req.body.permission,
+      }
+      ManagerModules.EditManagerData(ManagerData).then(result => {
+        /*res.json({
+            result: result
+        })*/
+        res.setHeader('Content-Type', 'application/json');
+        res.redirect('/manager_list');
+      }, (err) => {
+        res.json({
+          result: err
+        })
+      })
+    }
   }
 }
   

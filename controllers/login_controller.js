@@ -9,7 +9,7 @@ var encryption = require('../controllers/encryption');
 module.exports = class Login {
     Login(req, res, next) {
         // 進行加密
-        //const password = encryption(req.body.password);
+        const  password = encryption(req.body.password);
 
         // 獲取client端資料
         const Data = {
@@ -17,20 +17,18 @@ module.exports = class Login {
             password: password,
         }
         if (check.checkNull(Data)) {
-            return res.json({
-                message: "登入失敗"
-            })
+            res.json({ message: '登入失敗，帳號或密碼不可為空白' });
         }
         else {
             LoginModules.Login(Data).then(result => {
                 // 登入成功
-                return res.json({
-                    message: "成入成功"
-                })
+                res.setHeader('Content-Type', 'application/json');
+                res.redirect('/index');
             },
                 (err) => {
-                    return res.json({
-                        message: "登入失敗"
+                    // 若寫入失敗則回傳
+                    res.json({
+                        err: err
                     })
                 }
             )

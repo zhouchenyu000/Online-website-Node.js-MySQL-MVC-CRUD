@@ -44,26 +44,29 @@ module.exports = class GetPMember {
       })
       }
     EditMember = (req, res, next) =>{
-          console.log(req.body)
-          var MemberData = {
-            id: req.body.id,
-            name: req.body.name,
-            price:req.body.price,
-            quantity: req.body.quantity,
-          }
-          console.log(MemberData)
-          MemberModules.EditMemberData(MemberData).then(result => { 
-            /*res.json({
-                result: result
-            })*/
-            res.setHeader('Content-Type', 'application/json');
-            res.redirect('/product_list');
-          }, (err) => {
-            res.json({
-                result: err
-            })
-          })
+      var id = req.body.id
+      
+      var MemberData = {
+        name: req.body.name,
+        account:req.body.account,
+        password: req.body.password,
+        sex: req.body.sex,
+        email: req.body.email,
+        phone: req.body.phone,
+        ads: req.body.ads,
       }
+      MemberModules.EditMemberData(MemberData,id).then(result => { 
+        /*res.json({
+            result: result
+        })*/
+        res.setHeader('Content-Type', 'application/json');
+        res.redirect('/member_list');
+      }, (err) => {
+        res.json({
+            result: err
+        })
+      })
+    }
 
 }
 

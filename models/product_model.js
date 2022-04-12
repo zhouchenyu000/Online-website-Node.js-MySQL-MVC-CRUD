@@ -53,7 +53,7 @@ module.exports = class Product {
                             return;
                         }
                         // 若寫入資料庫成功，則回傳給clinet端下：
-                        result.status = "註冊成功。"
+                        result.status = "新增成功。"
                         result.data = ProductData;
                         resolve(result);
                     })

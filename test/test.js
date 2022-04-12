@@ -1,59 +1,52 @@
-const sinon = require("sinon");
-var controller_4 = require('../controllers/login_controller');
-var LoginControllers = new controller_4()
-var encryption = require('../controllers/encryption');
-const axios = require("axios");
-const mockRequest = (data) => {
-    return {
-        body: data
+var should = require("should")
+var router = require("../routes/index");
+const request = require("supertest")
+const { expect } = require("chai")
+
+const express = require('express')
+const app = express()
+ 
+var modules_1 = require('../controllers/prodouct_controller');
+var ProductControllers = new modules_1()
+
+var res = {
+    viewName: ""
+    , data : {}
+    , render: function(view, viewData) {
+        this.viewName = view;
+        this.data = viewData;
     }
-}
+};
 
-const mockResponse = () => {
-    const res = {};
-    res.json = sinon.stub().returns(res);
-    return res;
-}
-let axiosPostStub
-describe("[登入功能]", () => {
-    before(() => {
-        axiosPostStub = sinon.stub(axios, "post");
-    })
-
-    after(() => {
-        axiosPostStub.restore();
-    })
-
-    it("登入成功", async () => {
-        const data = {
-          account: "admin@example.com",
-          password:'12345678'
-        }
-        const req = mockRequest(data)
-        const res = mockResponse();
-        axiosPostStub.withArgs("http://localhost:3000/Login", data).resolves({
-            status: 0
-        })
-        await LoginControllers.Login(req, res)
-        sinon.assert.calledWith(res.json, {
-            message: "登入成功",
+describe("Routing", function(){
+    describe("Default Route", function(){
+        it("should provide the a title and the index view name", function(){
+        router.get('/welcome', function (req, res, next) {
+            res.render('index' );
         });
-        sinon.assert.calledOnce(res.json);
-    })
-    it("登入錯誤", async () => {
-        const data = {
-            username: "123",
-            password:'12345678'
-        }
-        const req = mockRequest(data)
-        const res = mockResponse();
-        axiosPostStub.withArgs("http://localhost:3000/Login", data).resolves({
-            status: -1
-        })
-        await LoginControllers.Login(req, res)
-        sinon.assert.calledWith(res.json, {
-            message: "登入失敗",
+        console.log(res)
+        res.viewName.should.equal("welcome");
         });
-        sinon.assert.calledOnce(res.json);
-    })
-})
+
+    });
+});
+
+describe("Routing", function(){
+    describe("Default Route", function(){
+        it("should provide the a title and the index view name", function(){
+        router.post('/ProductAdd', ProductControllers.AddProduct);
+        res.viewName.should.equal("product_list");
+        });
+
+    });
+});
+
+/*describe('POST /ProductAdd', function () {
+  it('should respond with 200 if user account created successfully', async () => {
+    const response = await request(app)
+      .post('/ProductAdd')
+      .send({name: "test", price: 1,quantity:1})
+      .set('Accept', 'application/json')
+      expect(response.statusCode).to.be.equal(200)
+  })
+});*/

@@ -37,7 +37,7 @@
                         <!-- 二级菜单 -->
                         
                         <dd>
-                            <a href="">退出</a></dd>
+                           <a href="/">退出</a></dd>
                     </dl>
                 </li>
                 
@@ -101,7 +101,7 @@
                 <div class="layui-tab-content">
                     <div class="x-nav">
           <span class="layui-breadcrumb">
-            <a href="./"><cite>首頁</cite></a>
+            <a href="./index"><cite>首頁</cite></a>
           </span>
         </div>
        <div class="layui-fluid">
@@ -120,7 +120,6 @@
                                     <th>
                                       <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
                                     </th>
-                                    <th>商品編號</th>
                                     <th>商品名稱</th>
                                     <th>商品名稱</th>
                                     <th>商品數量</th>
@@ -130,9 +129,8 @@
                                   <% for ( var i = 0 ; i < data_list.length ; i++){ %>
                                     <tr>
                                       <td>
-                                        <input type="checkbox" name="id" value="1"   lay-skin="primary"> 
+                                        <input type="checkbox" name="id" value="<%=data_list[i].id %>"   lay-skin="primary"> 
                                       </td>
-                                      <td><%= data_list[i].id%></td>
                                       <td><%= data_list[i].name%></td>
                                       <td><%= data_list[i].price%></td>
                                       <td><%= data_list[i].quantity%></td>

@@ -19,57 +19,62 @@
     
     <body>
         <div class="layui-fluid">
-            <form action="ProductEdit" method="post" accept-charset="utf-8">
-                    <input type="hidden" id="product_id" name="id">
+            <form action="MemberEdit" method="post" accept-charset="utf-8">
+                    <input type="hidden" id="member_id" name="id">
                     <label class="layui-form-label">No.<t id="id"></t></label>
                     <div class="layui-form-item">
                         <label for="username" class="layui-form-label">
                             <span class="x-red">*</span>會員名稱</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="name" required="" lay-verify="required" autocomplete="off" class="layui-input"></div>
+                            <input type="text" name="name"  required="" lay-verify="required" autocomplete="off" class="layui-input"></div>
                     </div>
                     <div class="layui-form-item">
                         <label for="username" class="layui-form-label">
                             <span class="x-red">*</span>會員帳號</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="account" required="" lay-verify="required" autocomplete="off" class="layui-input"></div>
+                            <input type="text" name="account"  required="" lay-verify="required" autocomplete="off" class="layui-input"></div>
                     </div>
                     <div class="layui-form-item">
                         <label for="phone" class="layui-form-label">
                             <span class="x-red">*</span>會員密碼</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="password" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
+                            <input type="password" name="password" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
                     </div>
                     <div class="layui-form-item">
                         <label for="phone" class="layui-form-label">
                             <span class="x-red">*</span>性別</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="sex" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
+                            <input type="text" name="sex" required="" list="typelist" lay-verify="phone" autocomplete="off" class="layui-input">
+                            <datalist id="typelist">
+                                <option>男</option>
+                                <option>女</option>
+                            </datalist>
+                        </div>
                     </div>
                     <div class="layui-form-item">
                         <label for="phone" class="layui-form-label">
                             <span class="x-red">*</span>Email</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="email" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
+                            <input type="text" name="email"  required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
                     </div>
                     <div class="layui-form-item">
                         <label for="phone" class="layui-form-label">
                             <span class="x-red">*</span>電話號碼</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="phone" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
+                            <input type="text" name="phone"  required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
                     </div>
                     <div class="layui-form-item">
                         <label for="phone" class="layui-form-label">
                             <span class="x-red">*</span>地址</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="ads" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
+                            <input type="text" name="ads"  required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label"></label>
                     <button class="layui-btn" lay-filter="add" lay-submit="">更新</button>
                     <input type='reset' class="layui-btn" value='清空'>
-                    <button type="button" onclick="javascript: location.href='/product_list'" class="layui-btn">返回</button>
+                    <button type="button" onclick="javascript: location.href='/member_list'" class="layui-btn">返回</button>
                 </div>
             </form>
         </div>
@@ -81,7 +86,7 @@
         var url = new URL(getUrlString);
         var no_id=url.searchParams.get('id');
         document.getElementById("id").innerHTML = no_id;
-        document.getElementById("product_id").value = no_id;
+        document.getElementById("member_id").value = no_id;
     </script>
 
 </html>
